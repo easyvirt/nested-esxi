@@ -5,7 +5,7 @@ Description - work in progress
 This are just beginnigs with Terraform, so please be gentle :)
 
 ## Embedded esxi
-(based on great article: https://troylindsayblog.wordpress.com/2018/04/10/using-terraform-to-deploy-nested-esxi-hosts-in-your-vmware-cloud-on-aws-sddc-or-home-lab/)
+(based on great article: https://troylindsayblog.wordpress.com/2018/04/10/using-terraform-to-deploy-nested-esxi-hosts-in-your-vmware-cloud-on-aws-sddc-or-home-lab/) and embedded esxi images by https://www.virtuallyghetto.com/nested-virtualization.
 
 You need to provide:
 - staring addres (with dot in the end)
