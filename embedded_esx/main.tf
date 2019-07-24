@@ -2,10 +2,10 @@
 
 provider "vsphere" {
    version="~> 1.3"
-   vsphere_server="${var.vcsa["address"]}" # Set this to your VMC SDDC FQDN
+   vsphere_server="${var.vcsa["address"]}"
    allow_unverified_ssl=true
    user="${var.vcsa["user"]}"
-   password="${var.vcsa["password"]}" # Set this to your VMC SDDC password
+   password="${var.vcsa["password"]}"
  }
 
  # Data source_ranges
@@ -23,11 +23,6 @@ provider "vsphere" {
    name="vsanDatastore"
    datacenter_id="${data.vsphere_datacenter.dc.id}"
  }
-
-# data "vsphere_distributed_virtual_switch" "dvs" {
-#   name="OpenStackIntegrated"
-#   datacenter_id="${data.vsphere_datacenter.dc.id}"
-# }
 
  data "vsphere_network" "network" {
    name="OpenStackIntegrated"
@@ -60,7 +55,6 @@ provider "vsphere" {
    disk {
      label="sda"
      unit_number=0
-     #size="${data.vsphere_virtual_machine.template.disks.0.size}"
      size="${var.disk_sizes["sda"]}"
      eagerly_scrub="${data.vsphere_virtual_machine.template.disks.0.eagerly_scrub}"
      thin_provisioned="${data.vsphere_virtual_machine.template.disks.0.thin_provisioned}"
@@ -69,7 +63,6 @@ provider "vsphere" {
    disk {
      label="sdb"
      unit_number=1
-     #size="${data.vsphere_virtual_machine.template.disks.1.size}"
      size="${var.disk_sizes["sdb"]}"
      eagerly_scrub="${data.vsphere_virtual_machine.template.disks.1.eagerly_scrub}"
      thin_provisioned="${data.vsphere_virtual_machine.template.disks.1.thin_provisioned}"
@@ -78,8 +71,6 @@ provider "vsphere" {
    disk {
      label="sdc"
      unit_number=2
-#     size="${data.vsphere_virtual_machine.template.disks.2.size}"
-#     override size defined by template
      size="${var.disk_sizes["sdc"]}"
      eagerly_scrub="${data.vsphere_virtual_machine.template.disks.2.eagerly_scrub}"
      thin_provisioned="${data.vsphere_virtual_machine.template.disks.2.thin_provisioned}"
